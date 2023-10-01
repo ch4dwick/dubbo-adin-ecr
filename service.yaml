@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dubbo-admin
+  namespace: dubbo
+spec:
+  type: ClusterIP
+  ports:
+    - name: dubbo-admin
+      port: 38080
+      targetPort: http
+      protocol: TCP
+
+  selector:
+    app: dubbo-admin

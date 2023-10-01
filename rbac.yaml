@@ -1,0 +1,51 @@
+# Optional: You may use this and enable it deployment.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dubbo-admin
+  namespace: dubbo
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: dubbo-admin-role
+  namespace: dubbo
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - "extensions"
+    resources:
+      - ingresses
+    verbs:
+      - get
+  - apiGroups:
+      - "apps"
+    resources:
+      - configmaps
+      - deployments
+      - services
+    verbs:
+      - get
+      - list
+      - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: dubbo-admin-binding
+  namespace: dubbo
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: dubbo-admin-role
+subjects:
+  - kind: ServiceAccount
+    name: dubbo-admin
+    namespace: dubbo
