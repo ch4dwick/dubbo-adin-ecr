@@ -10,6 +10,7 @@ These files are the bare minimum config to run Dubbo Admin on an EKS / K8S clust
 - locally configured .kube environment
 - create a k8s namespace named "dubbo" (can be customized but make sure to update the namespace values in the folder)
 - create a secret 'dubbo' with the following data: DUBBO_ROOT_USER DUBBO_ROOT_PASSWORD NACOS_PASSWORD MYSQL_PASSWORD in the same namespace. Set values to match nacos server.
+- Tweak the necessary values in configmap.yaml, secrets.yaml and deployment.yaml
 
 ## Installation
 
@@ -21,7 +22,7 @@ docker tag dubbo-admin:latest <acocunt-id>.dkr.ecr.<my-region>.amazonaws.com/dub
 docker push <acocunt-id>.dkr.ecr.<my-region>.amazonaws.com/dubbo-admin:latest
 ```
 
-You can get by by just running kubectl with secrets.yaml, configmap.yaml, deployment.yaml, and service.yaml. You can use either nginx, apache or APISIX to expose the generated service IP and port.
+You can get by just applying kubectl with secrets.yaml, configmap.yaml, deployment.yaml, and service.yaml. You can use nginx, apache or APISIX to expose the generated service IP and port.
 
 ## Teardown
 
