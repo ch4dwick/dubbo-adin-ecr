@@ -32,7 +32,7 @@ data:
     admin.config-center=nacos://127.0.0.1:8848?group=dubbo&namespace=fb45c9bc-57b4-4cff-8b2c-280db334fdec&username=nacos&password=${NACOS_PASSWORD}
     admin.metadata-report.address=nacos://127.0.0.1:8848?group=dubbo&namespace=fb45c9bc-57b4-4cff-8b2c-280db334fdec&username=nacos&password=${NACOS_PASSWORD}
 
-    #
+    # mysql
     spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
     spring.datasource.url=jdbc:mysql://localhost:3306/dubbo-admin?characterEncoding=utf8&connectTimeout=1000&socketTimeout=10000&autoReconnect=true
     spring.datasource.username=dubbo-admin
